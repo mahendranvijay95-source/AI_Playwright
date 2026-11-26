@@ -1,0 +1,29 @@
+{
+  "name": "ai_newproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:bdd": "cucumber-js --config cucumber.js",
+    "test:bdd:smoke": "cucumber-js --config cucumber.js --tags \"@smoke\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "playwright": "^1.65.1",
+    "playwright-core": "^1.65.1",
+    "undici-types": "^8.9.0"
+  }
+}
