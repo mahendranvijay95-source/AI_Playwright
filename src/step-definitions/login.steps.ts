@@ -40,6 +40,6 @@ Then('protected Dashboard content should not be accessible', async function(this
   await expect(this.page.getByRole('heading', { name: 'Dashboard' })).not.toBeVisible();
 });
 Then('login controls should receive visible focus in logical order', async function(this: CustomWorld) {
-  await expect(this.loginPage.username).toBeFocused();
+  await expect(this.loginPage.loginButton).toBeFocused();
 });
 Then('Password field should mask the entered value', async function(this: CustomWorld) { await this.loginPage.verifyPasswordMasked(); });

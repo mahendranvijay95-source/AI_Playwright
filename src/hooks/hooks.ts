@@ -17,8 +17,9 @@ Before(async function(this: CustomWorld) {
 });
 BeforeStep(async function(this: CustomWorld) { await this.page?.waitForLoadState('domcontentloaded').catch(() => undefined); });
 AfterStep(async function(this: CustomWorld) { await this.page?.evaluate(() => document.readyState).catch(() => undefined); });
-After(async function(this: CustomWorld, result) {
+After(async function(this: CustomWorld, hookParameter) {
   const artifacts = path.resolve(process.cwd(), 'artifacts'); fs.mkdirSync(artifacts, { recursive: true });
+  const result = hookParameter.result;
   if (result?.status === Status.FAILED) {
     await this.page?.screenshot({ path: path.join(artifacts, 'failure-' + Date.now() + '.png'), fullPage: true }).catch(() => undefined);
     console.error('Scenario failure:', result.message ?? 'Unknown failure');
